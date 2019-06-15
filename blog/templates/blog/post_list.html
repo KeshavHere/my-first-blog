@@ -2,9 +2,6 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-<form method="GET" action="{% url 'post_new' %}">
-    <button type="submit">Post New</button>
-</form>
 
 {% for post in posts %}
     <div>
@@ -13,3 +10,6 @@
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endfor %}
+
+<h3>To add New click on plus </h3>
+<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
