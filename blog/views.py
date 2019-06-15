@@ -11,7 +11,8 @@ def post_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            render(request, 'blog/post_list.html')
+            posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+            return render(request, 'blog/post_list.html', {'posts': posts})
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
